@@ -13,80 +13,107 @@
         android:id="@+id/btnUm"
         android:layout_width="@dimen/botao_largura"
         android:layout_height="@dimen/botao_altura"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:layout_marginEnd="10dp"
+        android:text="1"
+        app:layout_constraintBottom_toBottomOf="@id/btnDois"
+        app:layout_constraintEnd_toStartOf="@id/btnDois"
+        app:layout_constraintTop_toTopOf="@id/btnDois" />
+
 
     <Button
         android:id="@+id/btnDois"
         android:layout_width="@dimen/botao_largura"
         android:layout_height="@dimen/botao_altura"
-        android:layout_marginStart="10dp"
-        app:layout_constraintStart_toEndOf="@id/btnUm" />
+        android:text="2"
+        app:layout_constraintBottom_toTopOf="@id/btnCinco"
+        app:layout_constraintEnd_toEndOf="@id/btnCinco"
+        app:layout_constraintStart_toStartOf="@id/btnCinco" />
+
 
     <Button
         android:id="@+id/btnTres"
         android:layout_width="@dimen/botao_largura"
         android:layout_height="@dimen/botao_altura"
         android:layout_marginStart="10dp"
-        app:layout_constraintEnd_toEndOf="pa"
-        app:layout_constraintStart_toEndOf="@id/btnDois" />
+        android:text="3"
+        app:layout_constraintBottom_toBottomOf="@id/btnDois"
+        app:layout_constraintStart_toEndOf="@id/btnDois"
+        app:layout_constraintTop_toTopOf="@id/btnDois" />
+
 
     <Button
         android:id="@+id/btnQuatro"
         android:layout_width="@dimen/botao_largura"
         android:layout_height="@dimen/botao_altura"
-        android:layout_marginTop="10dp"
-        app:layout_constraintTop_toBottomOf="@id/btnUm" />
+        android:layout_marginEnd="10dp"
+        android:text="4"
+        app:layout_constraintBottom_toBottomOf="@id/btnCinco"
+        app:layout_constraintEnd_toStartOf="@id/btnCinco"
+        app:layout_constraintTop_toTopOf="@id/btnCinco" />
+
 
     <Button
         android:id="@+id/btnCinco"
         android:layout_width="@dimen/botao_largura"
         android:layout_height="@dimen/botao_altura"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        app:layout_constraintStart_toEndOf="@id/btnQuatro"
-        app:layout_constraintTop_toBottomOf="@id/btnDois" />
+        android:layout_marginTop="80dp"
+        android:text="5"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btnSeis"
         android:layout_width="@dimen/botao_largura"
         android:layout_height="@dimen/botao_altura"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
+        android:text="6"
+        app:layout_constraintBottom_toBottomOf="@id/btnCinco"
         app:layout_constraintStart_toEndOf="@id/btnCinco"
-        app:layout_constraintTop_toBottomOf="@id/btnTres" />
+        app:layout_constraintTop_toTopOf="@id/btnCinco" />
+
 
     <Button
         android:id="@+id/btnSete"
         android:layout_width="@dimen/botao_largura"
         android:layout_height="@dimen/botao_altura"
-        android:layout_marginTop="10dp"
-        app:layout_constraintTop_toBottomOf="@id/btnQuatro" />
+        android:layout_marginEnd="10dp"
+        android:text="7"
+        app:layout_constraintBottom_toBottomOf="@id/btnOito"
+        app:layout_constraintEnd_toStartOf="@id/btnOito"
+        app:layout_constraintTop_toTopOf="@id/btnOito" />
+
 
     <Button
         android:id="@+id/btnOito"
         android:layout_width="@dimen/botao_largura"
         android:layout_height="@dimen/botao_altura"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        app:layout_constraintStart_toEndOf="@id/btnSete"
+        android:text="8"
+        app:layout_constraintEnd_toEndOf="@id/btnCinco"
+        app:layout_constraintStart_toStartOf="@id/btnCinco"
         app:layout_constraintTop_toBottomOf="@id/btnCinco" />
+
 
     <Button
         android:id="@+id/btnNove"
         android:layout_width="@dimen/botao_largura"
         android:layout_height="@dimen/botao_altura"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
+        android:text="9"
+        app:layout_constraintBottom_toBottomOf="@id/btnOito"
         app:layout_constraintStart_toEndOf="@id/btnOito"
-        app:layout_constraintTop_toBottomOf="@id/btnSeis" />
+        app:layout_constraintTop_toTopOf="@id/btnOito" />
+
 
     <Button
         android:id="@+id/btnZero"
         android:layout_width="@dimen/botao_largura"
         android:layout_height="@dimen/botao_altura"
-        android:layout_marginTop="10dp"
-        app:layout_constraintEnd_toEndOf="@id/btnNove"
-        app:layout_constraintStart_toStartOf="@id/btnSete"
+        android:text="0"
+        app:layout_constraintEnd_toEndOf="@id/btnOito"
+        app:layout_constraintStart_toStartOf="@id/btnOito"
         app:layout_constraintTop_toBottomOf="@id/btnOito" />
+
 
 </android.support.constraint.ConstraintLayout>
