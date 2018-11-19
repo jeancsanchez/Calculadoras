@@ -10,13 +10,28 @@ import android.support.v7.widget.Toolbar
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import kotlinx.android.synthetic.main.content_main.*
+import kotlinx.android.synthetic.main.partial_resultado.*
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+
+    private var resultado = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         configurarMenuLateral()
+
+        btnUm.setOnClickListener { somar(1) }
+        btnDois.setOnClickListener { somar(2) }
+        btnTres.setOnClickListener { somar(3) }
+        btnQuatro.setOnClickListener { somar(4) }
+        btnCinco.setOnClickListener { somar(5) }
+        btnSeis.setOnClickListener { somar(6) }
+        btnSete.setOnClickListener { somar(7) }
+        btnOito.setOnClickListener { somar(8) }
+        btnNove.setOnClickListener { somar(9) }
+        btnZero.setOnClickListener { somar(0) }
     }
 
     override fun onBackPressed() {
@@ -86,5 +101,10 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         val navigationView = findViewById<View>(R.id.nav_view) as NavigationView
         navigationView.setNavigationItemSelectedListener(this)
+    }
+
+    private fun somar(numero: Int) {
+        resultado += numero
+        txtResultado.text = resultado.toString()
     }
 }
