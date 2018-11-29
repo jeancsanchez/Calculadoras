@@ -14,24 +14,43 @@ import kotlinx.android.synthetic.main.partial_resultado.*
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
-    private var resultado = 0
+    private var visor = ""
+
+    companion object {
+        private const val CLEAR = 0
+        private const val SOMAR = "+"
+        private const val SUB = "-"
+        private const val DIV = "/"
+        private const val MULT = "*"
+        private var operador = CLEAR
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         configurarMenuLateral()
 
-        btnUm.setOnClickListener { somar(1) }
-        btnDois.setOnClickListener { somar(2) }
-        btnTres.setOnClickListener { somar(3) }
-        btnQuatro.setOnClickListener { somar(4) }
-        btnCinco.setOnClickListener { somar(5) }
-        btnSeis.setOnClickListener { somar(6) }
-        btnSete.setOnClickListener { somar(7) }
-        btnOito.setOnClickListener { somar(8) }
-        btnNove.setOnClickListener { somar(9) }
-        btnZero.setOnClickListener { somar(0) }
+        btnUm.setOnClickListener { digitar(1) }
+        btnDois.setOnClickListener { digitar(2) }
+        btnTres.setOnClickListener { digitar(3) }
+        btnQuatro.setOnClickListener { digitar(4) }
+        btnCinco.setOnClickListener { digitar(5) }
+        btnSeis.setOnClickListener { digitar(6) }
+        btnSete.setOnClickListener { digitar(7) }
+        btnOito.setOnClickListener { digitar(8) }
+        btnNove.setOnClickListener { digitar(9) }
+        btnZero.setOnClickListener { digitar(0) }
+
+        btnSoma.setOnClickListener { digitar(SOMAR) }
+        btnSub.setOnClickListener { digitar(SUB) }
+        btnMult.setOnClickListener { digitar(MULT) }
+        btnIgual.setOnClickListener { mostrarResultado() }
+        btnClear.setOnClickListener {
+            txtResultado.text = "0"
+            visor = "0"
+        }
     }
+
 
     override fun onBackPressed() {
         val drawer = findViewById<View>(R.id.drawer_layout) as DrawerLayout
@@ -88,8 +107,53 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         navigationView.setNavigationItemSelectedListener(this)
     }
 
-    private fun somar(numero: Int) {
-        resultado += numero
-        txtResultado.text = resultado.toString()
+
+    private fun digitar(digito: Any) {
+        if (visor == "0") {
+            visor = ""
+        }
+
+        visor = visor.plus(digito.toString())
+        txtResultado.text = visor
+    }
+
+    private fun mostrarResultado() {
+        var total: Long = 0
+
+        if (SOMAR in visor) {
+            val valores = visor.split(SOMAR)
+            valores.forEachIndexed { index, item ->
+                try {
+                    total += item.toLong() + valores[index + 1].toLong()
+                } catch (e: java.lang.IndexOutOfBoundsException) {
+                    e.printStackTrace()
+                }
+            }
+        }
+
+        if (SUB in visor) {
+            val valores = visor.split(SUB)
+            valores.forEachIndexed { index, item ->
+                try {
+                    total += item.toLong() - valores[index + 1].toLong()
+                } catch (e: java.lang.IndexOutOfBoundsException) {
+                    e.printStackTrace()
+                }
+            }
+        }
+
+        if (MULT in visor) {
+            val valores = visor.split(MULT)
+            valores.forEachIndexed { index, item ->
+                try {
+                    total += item.toLong() * valores[index + 1].toLong()
+                } catch (e: IndexOutOfBoundsException) {
+                    e.printStackTrace()
+                }
+            }
+        }
+
+        visor = total.toString()
+        txtResultado.text = visor
     }
 }

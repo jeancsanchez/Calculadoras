@@ -118,5 +118,61 @@
         app:layout_constraintStart_toStartOf="@id/btnOito"
         app:layout_constraintTop_toBottomOf="@id/btnOito" />
 
+    <Button
+        android:id="@+id/btnSoma"
+        android:layout_width="@dimen/botao_largura"
+        android:layout_height="@dimen/botao_altura"
+
+        android:text="+"
+        app:layout_constraintBottom_toTopOf="@id/btnUm"
+        app:layout_constraintEnd_toEndOf="@id/btnUm"
+        app:layout_constraintStart_toStartOf="@id/btnUm" />
+
+    <Button
+        android:id="@+id/btnIgual"
+        android:layout_width="@dimen/botao_largura"
+        android:layout_height="@dimen/botao_altura"
+        android:layout_marginStart="10dp"
+        android:text="="
+        app:layout_constraintBottom_toBottomOf="@id/btnZero"
+        app:layout_constraintStart_toEndOf="@id/btnZero"
+        app:layout_constraintTop_toTopOf="@id/btnZero" />
+
+    <Button
+        android:id="@+id/btnClear"
+        android:layout_width="@dimen/botao_largura"
+        android:layout_height="@dimen/botao_altura"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:text="Clear"
+        app:layout_constraintBottom_toBottomOf="@id/btnZero"
+        app:layout_constraintEnd_toStartOf="@id/btnZero"
+        app:layout_constraintTop_toTopOf="@id/btnZero" />
+
+    <Button
+        android:id="@+id/btnSub"
+        android:layout_width="@dimen/botao_largura"
+        android:layout_height="@dimen/botao_altura"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:text="-"
+        app:layout_constraintBottom_toBottomOf="@id/btnDois"
+        app:layout_constraintBottom_toTopOf="@id/btnDois"
+        app:layout_constraintEnd_toEndOf="@id/btnDois"
+        app:layout_constraintStart_toEndOf="@id/btnClear"
+        app:layout_constraintStart_toStartOf="@id/btnDois" />
+
+    <Button
+        android:id="@+id/btnMult"
+        android:layout_width="@dimen/botao_largura"
+        android:layout_height="@dimen/botao_altura"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:text="x"
+        app:layout_constraintBottom_toBottomOf="@id/btnTres"
+        app:layout_constraintBottom_toTopOf="@id/btnTres"
+        app:layout_constraintEnd_toEndOf="@id/btnTres"
+        app:layout_constraintStart_toEndOf="@id/btnClear"
+        app:layout_constraintStart_toStartOf="@id/btnTres" />
 
 </android.support.constraint.ConstraintLayout>
