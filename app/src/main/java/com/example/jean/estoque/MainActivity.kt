@@ -123,10 +123,12 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         if (SOMAR in visor) {
             val valores = visor.split(SOMAR)
             valores.forEachIndexed { index, item ->
-                try {
-                    total += item.toLong() + valores[index + 1].toLong()
-                } catch (e: java.lang.IndexOutOfBoundsException) {
-                    e.printStackTrace()
+                if (item.isEmpty().not()) {
+                    try {
+                        total += item.toLong() + valores[index + 1].toLong()
+                    } catch (e: java.lang.IndexOutOfBoundsException) {
+                        e.printStackTrace()
+                    }
                 }
             }
         }
@@ -134,10 +136,12 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         if (SUB in visor) {
             val valores = visor.split(SUB)
             valores.forEachIndexed { index, item ->
-                try {
-                    total += item.toLong() - valores[index + 1].toLong()
-                } catch (e: java.lang.IndexOutOfBoundsException) {
-                    e.printStackTrace()
+                if (item.isEmpty().not()) {
+                    try {
+                        total += item.toLong() - valores[index + 1].toLong()
+                    } catch (e: java.lang.IndexOutOfBoundsException) {
+                        e.printStackTrace()
+                    }
                 }
             }
         }
@@ -145,10 +149,12 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         if (MULT in visor) {
             val valores = visor.split(MULT)
             valores.forEachIndexed { index, item ->
-                try {
-                    total += item.toLong() * valores[index + 1].toLong()
-                } catch (e: IndexOutOfBoundsException) {
-                    e.printStackTrace()
+                if (item.isEmpty().not()) {
+                    try {
+                        total += item.toLong() * valores[index + 1].toLong()
+                    } catch (e: IndexOutOfBoundsException) {
+                        e.printStackTrace()
+                    }
                 }
             }
         }
