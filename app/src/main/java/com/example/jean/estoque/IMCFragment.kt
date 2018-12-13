@@ -49,7 +49,6 @@ class IMCFragment : Fragment() {
             override fun onTextChanged(texto: CharSequence?, p1: Int, p2: Int, p3: Int) {
                 texto?.let { calcularImc() }
             }
-
         })
     }
 
@@ -57,13 +56,17 @@ class IMCFragment : Fragment() {
     private fun calcularImc() {
         try {
             val peso = edtImcPeso.text.toString().toFloat()
-            val altura = edtAltura.text.toString().toInt() / 100
-            val resultado = (peso / (altura * altura))
+            var altura = edtAltura.text.toString().toFloat()
 
-            txtResultado.text = resultado.toString()
+            if (altura > 100) {
+                altura /= 100
+            }
+
+            val resultado = (peso / (altura * altura))
+            txtResultado.text = String.format("%.2f", resultado)
 
         } catch (e: Exception) {
-            txtResultado.text = 0.toString()
+            txtResultado.text = e.message
         }
     }
 }
