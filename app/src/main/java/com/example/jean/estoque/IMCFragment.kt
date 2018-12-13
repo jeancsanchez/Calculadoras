@@ -65,8 +65,51 @@ class IMCFragment : Fragment() {
             val resultado = (peso / (altura * altura))
             txtResultado.text = String.format("%.2f", resultado)
 
+            mostrarResultado(resultado)
+
         } catch (e: Exception) {
             txtResultado.text = e.message
         }
+    }
+
+    private fun mostrarResultado(resultado: Float) {
+        if (resultado < 17) {
+            textResultadoFigura.text = "Muito abaixo do peso"
+            imgResultadoFigura.setImageDrawable(resources.getDrawable(R.drawable.fit3))
+            return
+        }
+
+        if (resultado in 17.0..18.49) {
+            textResultadoFigura.text = "Abaixo do peso"
+            imgResultadoFigura.setImageDrawable(resources.getDrawable(R.drawable.fit2))
+            return
+        }
+
+        if (resultado in 18.5..24.99) {
+            textResultadoFigura.text = "Peso normal"
+            imgResultadoFigura.setImageDrawable(resources.getDrawable(R.drawable.fit1))
+            return
+        }
+
+        if (resultado in 25.0..29.99) {
+            textResultadoFigura.text = "Acima do peso"
+            imgResultadoFigura.setImageDrawable(resources.getDrawable(R.drawable.fat1))
+            return
+        }
+
+        if (resultado in 30.0..34.99) {
+            textResultadoFigura.text = "Obesidade I"
+            imgResultadoFigura.setImageDrawable(resources.getDrawable(R.drawable.fat2))
+            return
+        }
+
+        if (resultado in 35.0..39.99) {
+            textResultadoFigura.text = "Obesidade II  (servera)"
+            imgResultadoFigura.setImageDrawable(resources.getDrawable(R.drawable.fat2))
+            return
+        }
+
+        textResultadoFigura.text = "Obesidade III (mórbida)"
+        imgResultadoFigura.setImageDrawable(resources.getDrawable(R.drawable.fat3))
     }
 }

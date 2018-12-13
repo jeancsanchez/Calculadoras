@@ -52,4 +52,21 @@
         app:layout_constraintStart_toEndOf="@id/txtAltura"
         app:layout_constraintTop_toTopOf="@id/txtAltura" />
 
+    <ImageView
+        android:id="@+id/imgResultadoFigura"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtAltura" />
+
+    <TextView
+        android:id="@+id/textResultadoFigura"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imgResultadoFigura" />
+
 </android.support.constraint.ConstraintLayout>
